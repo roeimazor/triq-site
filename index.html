@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRIQ — Material Readiness Intelligence | פלטפורמת מוכנות חומר ורכש חכמה</title>
+  <meta name="description" content="TRIQ מחברת בין תכנון, רכש וניהול פרויקטים יצרניים, מזהה פערי חומר וסיכוני אספקה מוקדם ומספקת תמונת מצב אחידה מבוססת בינה מלאכותית.">
+  <meta name="theme-color" content="#173B60">
+  <!-- Social sharing preview: Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="he_IL">
+  <meta property="og:site_name" content="TRIQ">
+  <meta property="og:title" content="TRIQ | מוכנות חומר וייצור חכמה">
+  <meta property="og:description" content="מזהים פערי חומר וסיכוני אספקה לפני שהם מעכבים את הייצור. TRIQ מחברת בין BOM, מלאי ורכש ומספקת תובנות AI לפעולה.">
+  <meta property="og:url" content="https://roeimazor.github.io/triq-site/">
+  <meta property="og:image" content="https://roeimazor.github.io/triq-site/triq-social-preview-v3.png">
+  <meta property="og:image:secure_url" content="https://roeimazor.github.io/triq-site/triq-social-preview-v3.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="TRIQ — Material Readiness Intelligence">
+  <!-- Social sharing preview: Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TRIQ | מוכנות חומר וייצור חכמה">
+  <meta name="twitter:description" content="מזהים פערי חומר וסיכוני אספקה לפני שהם מעכבים את הייצור. תובנות AI למוכנות ייצור חכמה.">
+  <meta name="twitter:image" content="https://roeimazor.github.io/triq-site/triq-social-preview-v3.png">
+  <meta name="twitter:image:alt" content="TRIQ — Material Readiness Intelligence">
+  <!-- TRIQ Botpress Webchat: previously published widget -->
+  <script src="https://cdn.botpress.cloud/webchat/v5.0/inject.js"></script>
+  <script src="https://files.bpcontent.cloud/2026/10/27/18/20261027185106-HTTLZTCT.js" defer></script>
+
+
+  <style>
+    /* CSS Reset & Base Variables */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary-navy: #173B60;
+      --dark-navy: #102D4D;
+      --teal: #2588A3;
+      --teal-hover: #1e7087;
+      --light-bg: #F5F8FB;
+      --white: #FFFFFF;
+      --border-color: #DCE5ED;
+      --text-main: #243447;
+      --text-muted: #536471;
+      --text-light: #64748B;
+      --error-red: #B91C1C;
+      --error-bg: #FEF2F2;
+      --success-green: #065F46;
+      --success-bg: #ECFDF5;
+      --warning-amber: #92400E;
+      --warning-bg: #FFFBEB;
+      --focus-ring: #0284C7;
+      --font-scale: 1rem;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 3px rgba(16, 45, 77, 0.06);
+      --shadow-md: 0 4px 12px rgba(16, 45, 77, 0.08);
+      --shadow-lg: 0 10px 25px rgba(16, 45, 77, 0.1);
+      --transition: all 0.2s ease-in-out;
+    }
+
+    /* Accessibility Modifiers */
+    body.high-contrast {
+      --primary-navy: #000000;
+      --dark-navy: #000000;
+      --teal: #004D61;
+      --light-bg: #FFFFFF;
+      --text-main: #000000;
+      --text-muted: #111111;
+      --border-color: #000000;
+      --shadow-sm: none;
+      --shadow-md: none;
+      --shadow-lg: none;
+    }
+
+    body.highlight-links a {
+      background-color: #FEF08A !important;
+      color: #000000 !important;
+      text-decoration: underline 2px solid #000000 !important;
+      outline: 2px solid #000000 !important;
+    }
+
+    body.reduce-motion *, body.reduce-motion *::before, body.reduce-motion *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    html {
+      font-size: var(--font-scale);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--light-bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+
+    /* Accessible Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      right: 1rem;
+      background: var(--dark-navy);
+      color: var(--white);
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-sm);
+      z-index: 99999;
+      font-weight: 600;
+      text-decoration: none;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+      top: 1rem;
+      outline: 3px solid var(--focus-ring);
+    }
+
+    /* Focus Indicators */
+    :focus-visible {
+      outline: 3px solid var(--focus-ring);
+      outline-offset: 2px;
+    }
+
+    /* Containers & Grid */
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      color: var(--dark-navy);
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    p.lead-text {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 3rem auto;
+    }
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: var(--transition);
+      min-height: 48px;
+    }
+
+    .btn-primary {
+      background-color: var(--teal);
+      color: var(--white);
+      box-shadow: 0 2px 8px rgba(37, 136, 163, 0.3);
+    }
+    .btn-primary:hover {
+      background-color: var(--teal-hover);
+      box-shadow: 0 4px 14px rgba(37, 136, 163, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+    .btn-outline:hover {
+      background-color: rgba(37, 136, 163, 0.08);
+    }
+
+    /* SECTION A: Minimal Header */
+    header.site-header {
+      background-color: var(--white);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand-logo-svg {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+    }
+    .brand-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      line-height: 1.1;
+      display: block;
+      letter-spacing: 0.04em;
+    }
+    .brand-tagline {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    .header-link {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      text-decoration: underline;
+      padding: 0.4rem 0.6rem;
+      border-radius: var(--radius-sm);
+    }
+    .header-link:hover {
+      color: var(--primary-navy);
+    }
+
+
+    /* Original TRIQ brand artwork, kept intact and proportionate */
+    .brand-logo-image {
+      display: block;
+      width: clamp(190px, 25vw, 290px);
+      height: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    @media (max-width: 640px) {
+      .brand-logo-image { width: min(220px, 55vw); }
+    }
+
+    /* SECTION B: Hero */
+    .hero-section {
+      padding: 4.5rem 0 3.5rem 0;
+      background: linear-gradient(180deg, var(--white) 0%, var(--light-bg) 100%);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .hero-content {
+      max-width: 600px;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--teal);
+      background-color: rgba(37, 136, 163, 0.1);
+      padding: 0.35rem 0.85rem;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(37, 136, 163, 0.2);
+    }
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .hero-footnote {
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    /* Hero Tech Flow Graphic (SVG) */
+    .hero-visual {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .flow-svg {
+      width: 100%;
+      height: auto;
+      max-width: 440px;
+    }
+
+    /* SECTION C: Business Problem */
+    .problem-section {
+      padding: 4.5rem 0;
+      background-color: var(--light-bg);
+    }
+    .cards-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+    .card {
+      background-color: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 2rem 1.75rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+    }
+    .card-icon-wrapper {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      background-color: rgba(23, 59, 96, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-navy);
+    }
+    .card h3 {
+      font-size: 1.15rem;
+      color: var(--dark-navy);
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* SECTION D: How TRIQ Works */
+    .how-section {
+      padding: 4.5rem 0;
+      background-color: var(--white);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .step-card {
+      background-color: var(--light-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 2rem 1.75rem;
+      position: relative;
+    }
+    .step-number {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+      display: inline-block;
+      letter-spacing: 0.05em;
+    }
+    .step-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+    .step-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* SECTION E: Product Preview */
+    .preview-section {
+      padding: 4.5rem 0;
+      background-color: var(--light-bg);
+    }
+    .dashboard-preview {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      margin-top: 1.5rem;
+    }
+    .dashboard-preview-header {
+      background: var(--dark-navy);
+      color: var(--white);
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+    }
+    .dashboard-tags {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .dash-tag {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+    }
+    .dashboard-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      background-color: #FAFCFE;
+    }
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .kpi-box {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      padding: 1rem;
+      border-radius: var(--radius-sm);
+    }
+    .kpi-title {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+    .kpi-val {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--dark-navy);
+    }
+    .kpi-val.ready { color: var(--success-green); }
+    .kpi-val.risk { color: var(--error-red); }
+
+    .dash-split {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 1.25rem;
+    }
+    .dash-panel {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+    }
+    .dash-panel-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .mini-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+    }
+    .mini-table th {
+      text-align: right;
+      padding: 0.5rem;
+      background: var(--light-bg);
+      color: var(--text-light);
+      font-weight: 600;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .mini-table td {
+      padding: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-main);
+    }
+    .badge-status {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+    .badge-ready { background: #ECFDF5; color: #065F46; }
+    .badge-risk { background: #FEF2F2; color: #991B1B; }
+    .badge-exp { background: #EFF6FF; color: #1E40AF; }
+
+    .ai-card-content {
+      background: linear-gradient(135deg, rgba(37, 136, 163, 0.08) 0%, rgba(23, 59, 96, 0.04) 100%);
+      border: 1px solid rgba(37, 136, 163, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem;
+      font-size: 0.825rem;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+    .preview-disclaimer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: 0.85rem;
+    }
+
+    /* SECTION F: Three Operational Functions */
+    .functions-section {
+      padding: 4.5rem 0;
+      background-color: var(--white);
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* SECTION G: Lead Form */
+    .form-section {
+      padding: 5rem 0;
+      background: linear-gradient(180deg, var(--light-bg) 0%, var(--white) 100%);
+      border-top: 1px solid var(--border-color);
+    }
+    .form-card {
+      max-width: 580px;
+      margin: 0 auto;
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2.75rem 2.25rem;
+      box-shadow: var(--shadow-lg);
+    }
+    .form-card-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .form-card-header h2 {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--dark-navy);
+      margin-bottom: 0.5rem;
+    }
+    .form-control {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      font-size: 1rem;
+      font-family: inherit;
+      color: var(--text-main);
+      background-color: var(--white);
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      min-height: 48px;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(37, 136, 163, 0.2);
+    }
+    .form-control.input-error {
+      border-color: var(--error-red);
+      background-color: #FFFDFD;
+    }
+    .field-hint {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: 0.35rem;
+    }
+    .error-msg {
+      display: none;
+      font-size: 0.85rem;
+      color: var(--error-red);
+      font-weight: 500;
+      margin-top: 0.4rem;
+    }
+    .error-msg.visible {
+      display: block;
+    }
+
+    /* Typo Suggestion Banner */
+    .typo-suggestion {
+      display: none;
+      background-color: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      color: #166534;
+      padding: 0.5rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      margin-top: 0.45rem;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .typo-suggestion.visible {
+      display: flex;
+    }
+    .typo-btn {
+      background: #166534;
+      color: var(--white);
+      border: none;
+      padding: 0.25rem 0.6rem;
+      font-size: 0.775rem;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .typo-btn:hover {
+      background: #14532D;
+    }
+
+    /* Soft Domain Notice */
+    .domain-notice {
+      display: none;
+      font-size: 0.8rem;
+      color: var(--warning-amber);
+      background-color: var(--warning-bg);
+      border: 1px solid #FDE68A;
+      padding: 0.4rem 0.65rem;
+      border-radius: var(--radius-sm);
+      margin-top: 0.45rem;
+    }
+    .domain-notice.visible {
+      display: block;
+    }
+
+    .form-status-alert {
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      margin-top: 1.25rem;
+      display: none;
+      line-height: 1.5;
+    }
+    .form-status-alert.visible {
+      display: block;
+    }
+    .form-status-alert.success {
+      background-color: var(--success-bg);
+      color: var(--success-green);
+      border: 1px solid #A7F3D0;
+    }
+    .form-status-alert.error {
+      background-color: var(--error-bg);
+      color: var(--error-red);
+      border: 1px solid #FECACA;
+    }
+    .form-status-alert.info {
+      background-color: #EFF6FF;
+      color: #1E40AF;
+      border: 1px solid #BFDBFE;
+    }
+
+    /* SECTION H & Statement: Accessibility & Footer */
+    .accessibility-statement-section {
+      padding: 4.5rem 0;
+      background-color: var(--white);
+      border-top: 1px solid var(--border-color);
+    }
+    .statement-box {
+      background-color: var(--light-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 2.5rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .statement-box h3 {
+      font-size: 1.35rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--dark-navy);
+    }
+    .statement-box ul {
+      margin-right: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .statement-box p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    footer.site-footer {
+      background-color: var(--dark-navy);
+      color: var(--white);
+      padding: 2.5rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .footer-links a {
+      color: #CBD5E1;
+      text-decoration: underline;
+      margin-right: 1.5rem;
+    }
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+        /* ACCESSIBILITY FLOATING WIDGET */
+    .a11y-widget {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 9999;
+      font-size: 15px; /* Locked to prevent widget expansion/shift during document zoom */
+    }
+    .a11y-toggle-btn {
+      background-color: var(--primary-navy);
+      color: var(--white);
+      border: 2px solid var(--white);
+      border-radius: 50px;
+      padding: 0.75rem 1.25rem;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition);
+      min-height: 48px;
+    }
+    .a11y-toggle-btn:hover {
+      background-color: var(--dark-navy);
+      transform: scale(1.02);
+    }
+    .a11y-panel {
+      display: none;
+      position: absolute;
+      bottom: 58px;
+      left: 0;
+      width: 310px;
+      background-color: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      padding: 1.25rem;
+      color: var(--text-main);
+      font-size: 14px; /* Fix font size inside panel so buttons don't jump */
+    }
+    .a11y-panel.is-open {
+      display: block;
+    }
+    .a11y-panel h4 {
+      font-size: 15px;
+      margin-bottom: 0.85rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.5rem;
+      color: var(--dark-navy);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .a11y-btn-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .a11y-font-controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      width: 100%;
+    }
+    .a11y-action-btn {
+      background: var(--light-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.6rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      transition: var(--transition);
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+    .a11y-action-btn.full-width {
+      width: 100%;
+      text-align: right;
+      justify-content: flex-start;
+      padding: 0.6rem 1rem;
+    }
+    .a11y-action-btn:hover {
+      background: #E2E8F0;
+      border-color: #CBD5E1;
+    }
+    .a11y-action-btn[aria-pressed="true"] {
+      background: var(--teal);
+      color: var(--white);
+      border-color: var(--teal);
+    }
+    .a11y-symbol {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      background: rgba(23, 59, 96, 0.1);
+      border-radius: 4px;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    /* BOTPRESS PLACEHOLDER ARCHITECTURE */
+    #botpress-webchat-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9998;
+      pointer-events: auto;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .hero-content {
+        max-width: 100%;
+        text-align: center;
+      }
+      .hero-actions {
+        align-items: center;
+      }
+      .cards-grid-3 {
+        grid-template-columns: 1fr;
+      }
+      .dash-split {
+        grid-template-columns: 1fr;
+      }
+      .kpi-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.6rem; }
+      .a11y-widget {
+        bottom: 12px;
+        left: 12px;
+      }
+      .a11y-panel {
+        width: calc(100vw - 24px);
+        left: 0;
+      }
+      #botpress-webchat-container {
+        bottom: 12px;
+        right: 12px;
+      }
+    }
+  
+/* TRIQ 2026 SaaS landing redesign */
+:root{--primary-navy:#173B60;--dark-navy:#102D4D;--teal:#2588A3;--light-bg:#F5F8FB}
+body{font-family:Arial,"Segoe UI",sans-serif;background:#fff}
+.container{max-width:1220px}
+.site-header{background:rgba(255,255,255,.96)!important;backdrop-filter:blur(14px);padding:.55rem 0!important}
+.brand-logo-image{width:218px!important;height:auto!important;display:block}
+.header-inner{gap:20px}.header-inner nav{display:flex;align-items:center;gap:12px}.header-link{text-decoration:none!important;font-weight:600}.header-cta{padding:.6rem 1.1rem!important;font-size:.86rem!important;min-height:40px!important}
+.hero-section{position:relative;overflow:hidden;padding:7rem 0 6.5rem!important;background:radial-gradient(ellipse at 76% 20%,rgba(37,136,163,.13),transparent 45%),linear-gradient(150deg,#fff 10%,#f4f9fc 100%)!important}
+.hero-section:before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(#2588a31c 1px,transparent 1px);background-size:23px 23px;mask-image:linear-gradient(90deg,transparent 5%,black 100%)}
+.hero-grid{position:relative;grid-template-columns:1fr 1.08fr!important;gap:4.3rem!important}
+.hero-content{max-width:610px}.hero-badge{display:inline-flex!important;align-items:center;gap:10px;letter-spacing:.1em;font-size:.73rem!important;color:#17677e!important;background:#e8f5f8!important;border:1px solid #d3eaf0!important;padding:.5rem 1rem!important;margin-bottom:1.6rem!important}
+.live-dot{width:8px;height:8px;background:#16a0aa;border-radius:50%;box-shadow:0 0 0 4px #2588a31c}
+h1{font-size:clamp(2.5rem,4vw,4.15rem)!important;line-height:1.16!important;letter-spacing:-.045em!important;margin-bottom:1.5rem!important}.gradient-text{background:linear-gradient(100deg,#173B60,#2588A3);background-clip:text;-webkit-background-clip:text;color:transparent}
+.hero-content .lead-text{font-size:1.15rem;line-height:1.9;color:#4b6174;max-width:570px}
+.hero-actions{flex-direction:row!important;align-items:center!important;flex-wrap:wrap;gap:12px!important;margin-bottom:1.2rem}.hero-actions .btn{border-radius:10px!important;min-height:52px}.hero-actions .btn-outline{background:#fff}.hero-footnote{font-size:.77rem;color:#64748b}
+.hero-visual{padding:0!important;display:block!important;overflow:hidden;border-radius:18px!important;box-shadow:0 24px 65px rgba(16,45,77,.16),0 5px 15px rgba(16,45,77,.06)!important;transform:perspective(1200px) rotateY(-3deg)}
+.visual-top{display:flex;gap:10px;align-items:center;padding:15px 21px;background:#102d4d;color:#d4e7f2;font-size:11px;letter-spacing:.09em;direction:ltr}.visual-dot{height:9px;width:9px;background:#40c2cf;border-radius:50%}.visual-tag{margin-left:auto;border:1px solid #6b8aa1;padding:3px 7px;border-radius:4px;font-size:9px}
+.visual-content{padding:27px;background:linear-gradient(180deg,#fff,#f9fcff)}.visual-heading{font-size:17px;font-weight:800;color:#173b60;margin-bottom:22px}.visual-heading small{display:block;font-weight:400;font-size:12px;color:#64748b;margin-top:4px}.visual-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.visual-kpis>div{min-width:0;padding:16px 12px;border:1px solid #dce5ed;border-radius:11px;background:#fff}.visual-kpis small{display:block;color:#64748b;font-size:11px}.visual-kpis strong{display:block;color:#173b60;font-size:clamp(21px,2.5vw,31px);line-height:1.8;text-align:right;white-space:nowrap}.visual-kpis strong.red{color:#b91c1c}.visual-kpis span:not(.mini-bar){font-size:10px;color:#7d91a1}.mini-bar{display:block;background:#e5f0f3;height:5px;border-radius:5px;overflow:hidden}.mini-bar i{display:block;background:#2588a3;height:100%}
+.visual-alert{display:flex;gap:12px;align-items:center;padding:16px;margin-top:16px;background:#fff7f7;border:1px solid #f9d7d7;border-radius:10px}.alert-icon{width:27px;height:27px;display:grid;place-items:center;border-radius:7px;background:#fee2e2;color:#b91c1c;font-weight:900}.visual-alert strong,.visual-alert small{display:block}.visual-alert strong{font-size:12px;color:#8b2525}.visual-alert small{font-size:11px;color:#64748b}.priority{margin-right:auto;color:#b91c1c;font-size:9px;font-weight:800;direction:ltr}
+.visual-recommend{background:#eef8fa;border:1px solid #d3ecf0;border-radius:10px;margin-top:12px;padding:16px}.visual-recommend span{font-size:10px;font-weight:800;letter-spacing:.1em;color:#2588a3}.visual-recommend p{font-size:12px;line-height:1.8;margin-top:7px;color:#314a5e}
+.problem-section,.how-section,.preview-section,.functions-section{padding:6rem 0!important}.section-header{margin-bottom:3rem!important}.section-header h2{font-size:clamp(1.8rem,3vw,2.5rem);letter-spacing:-.025em}.section-header p{font-size:1.06rem;line-height:1.8}
+.card,.step-card{border-radius:16px!important;padding:2.2rem!important;box-shadow:0 8px 28px rgba(16,45,77,.035)!important;transition:transform .2s,box-shadow .2s}.card:hover,.step-card:hover{transform:translateY(-5px);box-shadow:0 14px 35px rgba(16,45,77,.1)!important}.card-icon-wrapper{width:55px;height:55px;border-radius:13px;background:#eaf5f8;color:#2588a3}
+.preview-section{background:linear-gradient(180deg,#f3f8fb,#fff)!important}.dashboard-preview{box-shadow:0 25px 70px rgba(16,45,77,.13)!important;border-radius:18px!important}.kpi-box{border-radius:10px!important}.kpi-val[dir=ltr]{direction:ltr;unicode-bidi:isolate}
+.form-section{padding:6rem 0!important;background:linear-gradient(135deg,#eaf5f8,#f5f8fb 55%,#fff)!important}.form-card{border-radius:20px!important;box-shadow:0 22px 60px rgba(16,45,77,.11)!important}
+@media(max-width:992px){.hero-grid{grid-template-columns:1fr!important;gap:3rem!important}.hero-visual{transform:none;max-width:650px;width:100%;margin:auto}.hero-content{margin:auto}.hero-content .lead-text{margin-left:auto;margin-right:auto}.hero-actions{justify-content:center}.header-nav{display:none}}
+@media(max-width:640px){.brand-logo-image{width:156px!important}.header-cta{font-size:.72rem!important;padding:.5rem .7rem!important}.hero-section{padding:4rem 0!important}.hero-content h1{font-size:2.5rem!important}.hero-actions{flex-direction:column!important}.hero-actions .btn{width:100%}.visual-content{padding:15px}.visual-kpis{gap:6px}.visual-kpis>div{padding:10px 7px}.visual-kpis small{font-size:9px}.visual-kpis strong{font-size:20px}.visual-alert{flex-wrap:wrap}.priority{margin-right:0}.dashboard-preview{overflow-x:auto}.dashboard-body{min-width:620px}}
+@media(prefers-reduced-motion:reduce){.card,.step-card{transition:none}.card:hover,.step-card:hover{transform:none}}
+
+
+/* TRIQ 2026: accessible motion system and clear navigation */
+html{scroll-padding-top:105px}
+section[id],h2[id]{scroll-margin-top:105px}
+.hero-actions .btn{transition:transform .22s ease,box-shadow .22s ease,background .22s ease}
+.hero-actions .btn:hover{transform:translateY(-3px)}
+.hero-visual{animation:triqFloat 7s ease-in-out infinite;will-change:transform}
+@keyframes triqFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.intelligence-strip{padding:70px 0;background:radial-gradient(ellipse at 50% 0%,#eaf7fb 0%,#f7fbfd 48%,#fff 100%);border-bottom:1px solid #dce5ed;overflow:hidden}
+.strip-heading{text-align:center;margin-bottom:32px}.strip-heading h2{font-size:clamp(1.45rem,3vw,2.05rem);margin:10px auto 0}.strip-eyebrow{color:#2588a3;font-size:.76rem;font-weight:800;letter-spacing:.18em;direction:ltr;display:block}
+.intelligence-flow{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:nowrap}
+.flow-source,.flow-engine,.flow-output{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:5px;border-radius:15px;padding:19px 11px;min-height:130px;flex:1;min-width:0;box-shadow:0 6px 24px rgba(16,45,77,.07)}
+.flow-source{background:#fff;border:1px solid #dce5ed}.flow-source strong,.flow-engine strong,.flow-output strong{font-size:.91rem;direction:ltr}.flow-source small,.flow-engine small,.flow-output small{font-size:.72rem;line-height:1.5;color:#64748b}.flow-icon{font-size:1.65rem;color:#2588a3}
+.flow-engine{background:linear-gradient(140deg,#102d4d,#173b60);border:1px solid #2588a3;color:#fff;flex:1.3;position:relative;box-shadow:0 0 0 5px rgba(37,136,163,.08),0 12px 32px rgba(16,45,77,.16)}.flow-engine small{color:#cde8ef}.engine-spark{font-size:1.7rem;color:#65d5eb;animation:triqPulse 2.8s ease-in-out infinite}
+.flow-output{background:linear-gradient(145deg,#e6f7f9,#fff);border:1px solid #8ccfda}.flow-output strong{color:#173b60}
+.flow-connector{display:flex;gap:5px;align-items:center;justify-content:center;flex:0 0 30px}.flow-connector i{display:block;width:5px;height:5px;background:#2588a3;border-radius:50%;animation:triqPulse 1.6s infinite}.flow-connector i:nth-child(2){animation-delay:.22s}.flow-connector i:nth-child(3){animation-delay:.44s}
+@keyframes triqPulse{0%,100%{opacity:.25;transform:scale(.75)}50%{opacity:1;transform:scale(1.25)}}
+.flow-note{text-align:center;margin-top:20px;font-size:.75rem;color:#64748b}
+.reveal-on-scroll{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}.reveal-on-scroll.is-visible{opacity:1;transform:translateY(0)}
+@media(max-width:900px){.intelligence-flow{flex-wrap:wrap;gap:10px}.flow-source,.flow-engine,.flow-output{flex:1 1 145px;min-height:110px}.flow-connector{flex:0 0 14px}.intelligence-strip{padding:48px 0}}
+@media(max-width:600px){.intelligence-flow{display:grid;grid-template-columns:1fr;max-width:310px;margin:auto}.flow-source,.flow-engine,.flow-output{min-height:88px;padding:12px}.flow-connector{transform:rotate(-90deg);height:12px}.flow-icon{font-size:1.3rem}.intelligence-strip{padding:40px 0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.hero-visual,.engine-spark,.flow-connector i{animation:none!important}.reveal-on-scroll{opacity:1!important;transform:none!important;transition:none!important}}
+body.reduce-motion .hero-visual,body.reduce-motion .engine-spark,body.reduce-motion .flow-connector i{animation:none!important}
+body.reduce-motion .reveal-on-scroll{opacity:1!important;transform:none!important}
+
+
+  /* Responsive brand banner */
+  .triq-brand-banner { padding: 16px 0 0; }
+  .triq-brand-banner img { display: block; width: 100%; height: auto; border-radius: 18px; }
+</style>
+</head>
+<body>
+
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">דלג לתוכן המרכזי</a>
+
+  <!-- SECTION A: Minimal Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="brand-group" aria-label="TRIQ — Material Readiness Intelligence">
+        <img class="brand-logo-image" src="./triq-logo.svg" alt="TRIQ — Material Readiness Intelligence" width="500" height="200">
+      </div>
+      <nav aria-label="ניווט משני">
+        <a href="#how-heading" class="header-link header-nav">איך זה עובד</a><a href="#preview-heading" class="header-link header-nav">המוצר</a><a href="#functions-heading" class="header-link header-nav">למי זה מתאים</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content">
+
+    <!-- The hero starts here; removed reference to missing triq-hero-banner.jpg -->
+
+    <!-- SECTION B: Hero -->
+<section class="hero-section" aria-labelledby="hero-title"><div class="container hero-grid">
+<div class="hero-content"><span class="hero-badge"><span class="live-dot"></span> MATERIAL READINESS INTELLIGENCE</span>
+<h1 id="hero-title">מוכנות החומר שלך.<br><span class="gradient-text">תמיד צעד לפני הייצור.</span></h1>
+<p class="lead-text">מפסיקים לרדוף אחרי דוחות. TRIQ מחברת בין עץ המוצר, המלאי וההזמנות הפתוחות — ומתרגמת פערי חומר להחלטות ברורות, לפני שהן הופכות לעיכובים.</p>
+<div class="hero-actions"><a class="btn btn-primary" href="#how-heading">גלו איך זה עובד <span aria-hidden="true">↓</span></a><a class="btn btn-outline" href="#demo-form-section">לתיאום הדגמה <span aria-hidden="true">↙</span></a></div>
+<div class="hero-footnote">תמונה אחת לצוותי הפרויקט, התכנון והרכש · הדמיה מבוססת נתוני דוגמה</div></div>
+<div class="hero-visual" aria-label="תצוגה מקדימה של מוכנות חומר בפרויקט">
+<div class="visual-top"><span class="visual-dot"></span><span>TRIQ / PROJECT OVERVIEW</span><span class="visual-tag">DEMO</span></div>
+<div class="visual-content"><div class="visual-heading">מוכנות חומר לפרויקט <small>מערכת אלקטרו־אופטית V2</small></div>
+<div class="visual-kpis"><div><small>מוכנות מלאה</small><strong>40%</strong><span class="mini-bar"><i style="width:40%"></i></span></div><div><small>יחידות מוכנות</small><strong dir="rtl">4 מתוך 10</strong><span>מתוך 10 יחידות</span></div><div><small>בסיכון אספקה</small><strong class="red">3</strong><span>דורשות טיפול</span></div></div>
+<div class="visual-alert"><span class="alert-icon">!</span><div><strong>זוהה פריט חוסם</strong><small>מק״ט 104-A · איחור צפוי של 12 ימים</small></div><span class="priority">CRITICAL</span></div>
+<div class="visual-recommend"><span>✦ AI INSIGHT</span><p>מומלץ לקדם את הטיפול בצמת החיווט, ובמקביל לבחון ייצור מקדים של תת־הרכבה הזמינה.</p></div>
+</div></div></div></section>
+
+<!-- TRIQ data-to-decisions motion graphic -->
+<section class="intelligence-strip" aria-label="תהליך עיבוד הנתונים של TRIQ">
+ <div class="container">
+  <div class="strip-heading"><span class="strip-eyebrow">FROM DATA TO DECISIONS</span><h2>שלושה מקורות. מנוע חכם אחד. החלטות מדויקות.</h2></div>
+  <div class="intelligence-flow" dir="rtl">
+   <div class="flow-source"><span class="flow-icon">▤</span><strong>BOM</strong><small>דרישות חומר</small></div>
+   <span class="flow-connector" aria-hidden="true"><i></i><i></i><i></i></span>
+   <div class="flow-source"><span class="flow-icon">▦</span><strong>Inventory</strong><small>מלאי זמין</small></div>
+   <span class="flow-connector" aria-hidden="true"><i></i><i></i><i></i></span>
+   <div class="flow-source"><span class="flow-icon">▤</span><strong>Open Orders</strong><small>הזמנות ו־ETA</small></div>
+   <span class="flow-connector" aria-hidden="true"><i></i><i></i><i></i></span>
+   <div class="flow-engine"><span class="engine-spark">✦</span><strong>TRIQ Intelligence</strong><small>ניתוח מוכנות וסיכוני אספקה</small></div>
+   <span class="flow-connector" aria-hidden="true"><i></i><i></i><i></i></span>
+   <div class="flow-output"><strong>תעדוף חכם</strong><small>פעולות מומלצות לצוות</small></div>
+  </div>
+  <p class="flow-note">המחשת תהליך עיבוד נתונים · אינה מציגה חיבור חי למערכת ERP</p>
+ </div>
+</section>
+
+<!-- SECTION C: The Business Problem -->
+    <section class="problem-section" aria-labelledby="problem-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="problem-heading">כשהמידע מפוזר, קשה לראות את הסיכון בזמן.</h2>
+          <p>האתגרים התפעוליים המרכזיים המעכבים צוותי ייצור והצטיידות בתעשייה</p>
+        </div>
+        <div class="cards-grid-3">
+          <div class="card">
+            <div class="card-icon-wrapper" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 1-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            </div>
+            <h3>פיזור מקורות מידע</h3>
+            <p>נתוני עץ מוצר, מלאי ורכש מפוזרים בין דוחות ומערכות שונות, מה שמקשה על גיבוש תמונת אמת שוטפת.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon-wrapper" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <h3>גילוי מאוחר של צווארי בקבוק</h3>
+            <p>פערי חומר ואספקה עלולים להתגלות סמוך מדי למועד הייצור, כאשר עלות התיקון והעיכוב גבוהה במיוחד.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon-wrapper" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <h3>עבודה ידנית שוחקת</h3>
+            <p>צוותי הפרויקט משקיעים זמן ניכר באיסוף ידני של נתונים ובהצלבות שבועיות במקום בקבלת החלטות מהירה.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION D: How TRIQ Works -->
+    <section class="how-section" aria-labelledby="how-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="how-heading">שלושה שלבים לתמונת מצב חכמה יותר.</h2>
+          <p>התכנסות מובנית מנתוני גלם לתובנות תפעוליות מעשיות</p>
+        </div>
+        <div class="cards-grid-3">
+          <div class="step-card">
+            <span class="step-number">שלב 01</span>
+            <h3>מעלים נתונים</h3>
+            <p>מייבאים דוחות <bdi>BOM</bdi>, מלאי נוכחי והזמנות פתוחות בקלות ובמבנה נתונים מוגדר.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">שלב 02</span>
+            <h3>מחברים את התמונה</h3>
+            <p>משייכים את הנתונים לפרויקט ומרכזים את המידע בממשק אחיד המחשב דרישות מול כיסוי.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">שלב 03</span>
+            <h3>מזהים ומתעדפים</h3>
+            <p>מקבלים תמונת מצב ממוקדת של חריגים, פריטים חוסמים ונושאים הדורשים בדיקה וטיפול מיידי.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION E: Product Preview -->
+    <section class="preview-section" aria-labelledby="preview-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="preview-heading">המידע החשוב, במקום אחד.</h2>
+          <p>ממשק עבודה המותאם למקבלי החלטות, מהנדסי תכנון ומנהלי רכש</p>
+        </div>
+
+        <div class="dashboard-preview" role="region" aria-label="המחשת ממשק המערכת">
+          <div class="dashboard-preview-header">
+            <div class="dashboard-tags">
+              <span><strong>פרויקט:</strong> מערכת אלקטרו-אופטית V2</span>
+              <span class="dash-tag">10 יחידות מתוכננות</span>
+            </div>
+            <span>סטטוס: פעיל</span>
+          </div>
+          <div class="dashboard-body">
+            <!-- KPI Cards -->
+            <div class="kpi-row">
+              <div class="kpi-box">
+                <div class="kpi-title">מוכנות חומר פרויקטלית</div>
+                <div class="kpi-val ready">40%</div>
+              </div>
+              <div class="kpi-box">
+                <div class="kpi-title">יחידות במלאי מלא (Ready)</div>
+                <div class="kpi-val" dir="rtl" style="text-align:right;unicode-bidi:isolate;">4 מתוך 10</div>
+              </div>
+              <div class="kpi-box">
+                <div class="kpi-title">יחידות בכיסוי צפוי (Expected)</div>
+                <div class="kpi-val">3 יחידות</div>
+              </div>
+              <div class="kpi-box">
+                <div class="kpi-title">יחידות בסיכון אספקה (At Risk)</div>
+                <div class="kpi-val risk">3 יחידות</div>
+              </div>
+            </div>
+
+            <!-- Detail Grid -->
+            <div class="dash-split">
+              <!-- Shortage Table Preview -->
+              <div class="dash-panel">
+                <div class="dash-panel-title">
+                  <span>חריגות אספקה ופריטים חוסמים (דוגמה)</span>
+                  <span style="font-size: 0.75rem; color: var(--text-light);">מיון לפי דחיפות</span>
+                </div>
+                <table class="mini-table" aria-label="טבלת חוסרים לדוגמה">
+                  <thead>
+                    <tr>
+                      <th scope="col">מק"ט</th>
+                      <th scope="col">תיאור</th>
+                      <th scope="col">יחידות מושפעות</th>
+                      <th scope="col">פער ימי אספקה</th>
+                      <th scope="col">סטטוס</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><bdi>104-A</bdi></td>
+                      <td>צמת חיווט ראשית</td>
+                      <td>יחידות 05, 06</td>
+                      <td style="color: var(--error-red); font-weight: 700;">איחור 12 יום</td>
+                      <td><span class="badge-status badge-risk">חוסם (At Risk)</span></td>
+                    </tr>
+                    <tr>
+                      <td><bdi>302-K</bdi></td>
+                      <td>כרטיס בקרה ספרתי</td>
+                      <td>יחידה 07</td>
+                      <td style="color: #1E40AF;">אספקה במועד</td>
+                      <td><span class="badge-status badge-exp">בזמן (Expected)</span></td>
+                    </tr>
+                    <tr>
+                      <td><bdi>088-F</bdi></td>
+                      <td>מחבר צבאי מהיר</td>
+                      <td>יחידות 01-04</td>
+                      <td>מלאי פיזי קיים</td>
+                      <td><span class="badge-status badge-ready">זמין (Ready)</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- AI Briefing Preview -->
+              <div class="dash-panel">
+                <div class="dash-panel-title">
+                  <span>תובנת מערכת חכמה (Decision Support)</span>
+                  <span style="font-size: 0.75rem; color: var(--teal); font-weight: 700;">AI Summary</span>
+                </div>
+                <div class="ai-card-content">
+                  <p><strong>המלצה תפעולית:</strong> איחור בהזמנה עבור מק"ט 104-A מעכב את הרכבת יחידה 05. עם זאת, תת-הרכבה אופטית (Sub-02) מוכנה ב-100% וניתנת לייצור מקדים ללא עצירת הקו.</p>
+                  <p style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--text-muted);">* המלצה לסיוע בקבלת החלטות על בסיס לוגיקת המערכת.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="preview-disclaimer">המחשה של ממשק המערכת — נתוני דוגמה בלבד, אינם נתונים חיים</div>
+      </div>
+    </section>
+
+    <!-- SECTION F: Three Operational Functions -->
+    <section class="functions-section" aria-labelledby="functions-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="functions-heading">שלושה תחומים. תמונת מצב אחת.</h2>
+          <p>סנכרון מלא בין גורמי הניהול, ההנדסה וההצטיידות בארגון</p>
+        </div>
+        <div class="cards-grid-3">
+          <div class="card">
+            <div class="card-icon-wrapper" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <h3>ניהול פרויקטים</h3>
+            <p>מעקב אחר מוכנות חומר והשפעתה על אבני הדרך של הפרויקט, לוחות הזמנים והתחייבויות האספקה.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon-wrapper" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </div>
+            <h3>תכנון ייצור</h3>
+            <p>הבנת צורכי החומר ביחס לתוכנית הייצור, זיהוי פריטים חוסמים ובחינת אפשרות לייצור מקדים של תתי-הרכבה.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon-wrapper" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            </div>
+            <h3>רכש והצטיידות</h3>
+            <p>מיקוד בהזמנות ובאספקות הדורשות מעקב, זיהוי חריגות תאריכי הגעה (<bdi>ETA</bdi>) וניהול יעיל מול ספקים.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION G: Demo Request Form -->
+    <section class="form-section" id="demo-form-section" aria-labelledby="form-heading">
+      <div class="container">
+        <div class="form-card">
+          <div class="form-card-header">
+            <h2 id="form-heading">רוצים לראות איך <bdi>TRIQ</bdi> יכולה להשתלב בתהליכי העבודה שלכם?</h2>
+            <p class="lead-text" style="font-size: 1rem; margin-bottom: 0;">השאירו פרטים לתיאום שיחת היכרות והדגמה.</p>
+          </div>
+
+          <form id="demo-lead-form" novalidate aria-describedby="form-status-alert">
+            <!-- Field 1: Full Name -->
+            <div class="form-group">
+              <label for="lead-fullname">שם מלא <span aria-hidden="true">*</span></label>
+              <input 
+                type="text" 
+                id="lead-fullname" 
+                name="fullname" 
+                class="form-control" 
+                autocomplete="name" 
+                required 
+                aria-required="true"
+                aria-describedby="name-error name-hint"
+                placeholder="לדוגמה: ישראל ישראלי"
+              >
+              <span id="name-hint" class="field-hint">נא להזין שם פרטי ושם משפחה (אותיות בלבד)</span>
+              <span id="name-error" class="error-msg" role="alert"></span>
+            </div>
+
+            <!-- Field 2: Business Email -->
+            <div class="form-group">
+              <label for="lead-email">כתובת מייל עסקית <span aria-hidden="true">*</span></label>
+              <input 
+                type="email" 
+                id="lead-email" 
+                name="email" 
+                class="form-control" 
+                autocomplete="email" 
+                dir="ltr" 
+                style="text-align: right;" 
+                required 
+                aria-required="true"
+                aria-describedby="email-error email-hint email-typo-banner domain-warning"
+                placeholder="name@company.com"
+              >
+              <span id="email-hint" class="field-hint">נא להזין כתובת דוא"ל פעילה בארגון</span>
+
+              <!-- Smart Typo Suggestion Banner -->
+              <div id="email-typo-banner" class="typo-suggestion" role="status" aria-live="polite">
+                <span>נראה שנפלה שגיאת הקלדה. האם התכוונת ל-<strong id="suggested-email-text"></strong>?</span>
+                <button type="button" id="apply-typo-btn" class="typo-btn">תקן עבורי</button>
+              </div>
+
+              <!-- Soft Warning for Public Domains -->
+              <div id="domain-warning" class="domain-notice" role="status" aria-live="polite">
+                שים לב: מומלץ להזין כתובת מייל ארגונית לקבלת הדגמה מותאמת אישית לפרויקט.
+              </div>
+
+              <span id="email-error" class="error-msg" role="alert"></span>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary" id="submit-btn" style="width: 100%;">
+              <span id="btn-text">לתיאום הדגמה</span>
+            </button>
+
+            <!-- Status & Feedback Area -->
+            <div id="form-status-alert" class="form-status-alert" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Accessibility Statement -->
+    <section class="accessibility-statement-section" id="accessibility-statement" aria-labelledby="a11y-stmt-title">
+      <div class="container">
+        <div class="statement-box">
+          <h2 id="a11y-stmt-title" style="text-align: right; margin-bottom: 1.5rem;">הצהרת נגישות — <bdi>TRIQ</bdi></h2>
+          <p><bdi>TRIQ — Material Readiness Intelligence</bdi> פועלת להנגשת דף הנחיתה שלה, במטרה לאפשר שימוש נוח, ברור ושוויוני ככל האפשר לכלל המשתמשים, לרבות אנשים עם מוגבלויות.</p>
+          <p>הדף מתוכנן בהתאם לעקרונות הנגישות של <bdi>WCAG 2.1</bdi> ברמה <bdi>AA</bdi>, תוך התייחסות לתקן הישראלי ת"י 5568 ולהוראות הנגישות הרלוונטיות בישראל.</p>
+
+          <h3>התאמות הנגישות המתוכננות</h3>
+          <ul>
+            <li>ניגודיות מתאימה בין טקסט לרקע, לרבות טקסט משני.</li>
+            <li>טקסט חלופי לתמונות המעבירות מידע.</li>
+            <li>תוויות ברורות וקבועות לשדות הטופס.</li>
+            <li>ניווט באמצעות מקלדת וסימון ברור של רכיב שנמצא במיקוד.</li>
+            <li>מבנה כותרות היררכי ותקין.</li>
+            <li>הגדרת שפה עברית וכיוון כתיבה מימין לשמאל.</li>
+            <li>התאמה למסכים בגדלים שונים ולהגדלת טקסט.</li>
+            <li>אפשרויות התאמה נוספות באמצעות רכיב נגישות ייעודי.</li>
+          </ul>
+
+          <h3>בדיקות נגישות</h3>
+          <p><strong>בדיקות שבוצעו:</strong><br>
+          נכון למועד הכנת נוסח זה, טרם התקבל תיעוד של בדיקות נגישות שבוצעו בפועל בדף הנחיתה הסופי.</p>
+          
+          <p><strong>בדיקות שטרם בוצעו או אומתו:</strong></p>
+          <ul>
+            <li>בדיקת ניגודיות צבעים בהתאם לדרישות <bdi>WCAG AA</bdi>.</li>
+            <li>בדיקת ניווט מלא באמצעות מקלדת.</li>
+            <li>בדיקת סימון מיקוד ותפעול טופס יצירת הקשר.</li>
+            <li>בדיקת טקסטים חלופיים ומבנה הכותרות.</li>
+            <li>בדיקת התאמה למסכים ניידים ולהגדלת תצוגה.</li>
+            <li>בדיקת תפקוד רכיב הנגישות.</li>
+            <li>בדיקה באמצעות קורא מסך.</li>
+          </ul>
+          <p>לאחר השלמת הבדיקות, ההצהרה תעודכן בהתאם לממצאים ולתיקונים שבוצעו.</p>
+
+          <h3>התאמות שטרם הושלמו</h3>
+          <p>נכון לשלב זה, טרם אומתה הנגישות של דף הנחיתה הסופי. ליקויים שיזוהו בבדיקות יתועדו ויטופלו בהתאם.</p>
+
+          <h3>יצירת קשר בנושא נגישות</h3>
+          <p>אם נתקלתם בקושי בשימוש באתר או שיש לכם הצעה לשיפור הנגישות, ניתן לפנות לאחראי הנגישות.</p>
+          <p>
+            <strong>אחראי נגישות:</strong> רועי מזור<br>
+            <strong>דוא"ל:</strong> <a href="mailto:roeielimazor@gmail.com">roeielimazor@gmail.com</a>
+          </p>
+
+          <h3>עדכון ההצהרה</h3>
+          <p><strong>תאריך עדכון מתוכנן:</strong> 27.10.2026<br>
+          הצהרה זו תעודכן לאחר השלמת בדיקות הנגישות ולפני פרסום הגרסה הסופית של האתר.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SECTION H: Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div>
+        <strong><bdi>TRIQ — Material Readiness Intelligence</bdi></strong>
+      </div>
+      <div class="footer-links">
+        <a href="#accessibility-statement">הצהרת נגישות</a>
+        <span>&copy; 2026 <bdi>TRIQ</bdi>. כל הזכויות שמורות.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ACCESSIBILITY CONTROLS WIDGET -->
+  <div class="a11y-widget" id="a11y-widget" role="region" aria-label="תפריט נגישות">
+    <button type="button" class="a11y-toggle-btn" id="a11y-toggle-btn" aria-expanded="false" aria-controls="a11y-panel">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8"></path><path d="M8 12h8"></path></svg>
+      <span>אפשרויות נגישות</span>
+    </button>
+    <div class="a11y-panel" id="a11y-panel" role="dialog" aria-modal="false" aria-label="הגדרות נגישות">
+      <h4>
+        <span>התאמת תצוגה ונגישות</span>
+      </h4>
+      <div class="a11y-btn-grid">
+        <!-- Font Size Controls: Side-by-side with clear symbols -->
+        <div class="a11y-font-controls" role="group" aria-label="שינוי גודל טקסט">
+          <button type="button" class="a11y-action-btn" id="btn-font-increase" aria-label="הגדל גופן">
+            <span class="a11y-symbol" aria-hidden="true">+</span>
+            <span>הגדל גופן</span>
+          </button>
+          <button type="button" class="a11y-action-btn" id="btn-font-decrease" aria-label="הקטן גופן">
+            <span class="a11y-symbol" aria-hidden="true">-</span>
+            <span>הקטן גופן</span>
+          </button>
+        </div>
+
+        <button type="button" class="a11y-action-btn full-width" id="btn-contrast" aria-pressed="false">ניגודיות גבוהה</button>
+        <button type="button" class="a11y-action-btn full-width" id="btn-links" aria-pressed="false">הדגשת קישורים</button>
+        <button type="button" class="a11y-action-btn full-width" id="btn-motion" aria-pressed="false">עצירת תנועה</button>
+        <button type="button" class="a11y-action-btn full-width" id="btn-reset" style="margin-top: 0.35rem; background: #FED7AA; border-color: #FDBA74; color: #7C2D12; justify-content: center;">איפוס הגדרות נגישות</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTPRESS PLACEHOLDER ARCHITECTURE -->
+  <div id="botpress-webchat-container" aria-hidden="true"></div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    (function() {
+      'use strict';
+
+      var ENDPOINT_URL = 'https://hook.us2.make.com/op2xuocuqjsszx94mpfla9rsvult25gc'; // Make webhook for demo requests
+
+      var form = document.getElementById('demo-lead-form');
+      var nameInput = document.getElementById('lead-fullname');
+      var emailInput = document.getElementById('lead-email');
+      var nameError = document.getElementById('name-error');
+      var emailError = document.getElementById('email-error');
+      var typoBanner = document.getElementById('email-typo-banner');
+      var typoText = document.getElementById('suggested-email-text');
+      var typoBtn = document.getElementById('apply-typo-btn');
+      var domainWarning = document.getElementById('domain-warning');
+      var statusAlert = document.getElementById('form-status-alert');
+      var submitBtn = document.getElementById('submit-btn');
+      var btnText = document.getElementById('btn-text');
+
+      var suggestedCleanEmail = '';
+
+      var PUBLIC_DOMAINS = ['gmail.com', 'walla.co.il', 'yahoo.com', 'hotmail.com', 'outlook.com', 'icloud.com', 'netvision.net.il'];
+
+      var COMMON_TYPOS = {
+        'gmai.com': 'gmail.com',
+        'gamil.com': 'gmail.com',
+        'gmaill.com': 'gmail.com',
+        'hotmial.com': 'hotmail.com',
+        'outlok.com': 'outlook.com'
+      };
+
+      function validateName(val) {
+        var clean = val.replace(/\s+/g, ' ').trim();
+        nameInput.value = clean;
+
+        if (!clean) {
+          return { valid: false, message: 'נא להזין שם מלא.' };
+        }
+
+        var validLettersRegex = /^[\u0590-\u05FFa-zA-Z\s\-']+$/;
+        if (!validLettersRegex.test(clean)) {
+          return { valid: false, message: 'השם יכול להכיל אותיות בלבד (עברית או אנגלית).' };
+        }
+
+        var parts = clean.split(' ').filter(function(p) { return p.length > 0; });
+        if (parts.length < 2 || parts[0].length < 2 || parts[1].length < 2) {
+          return { valid: false, message: 'נא להזין שם פרטי ושם משפחה מלאים.' };
+        }
+
+        return { valid: true };
+      }
+
+      function inspectEmail(val) {
+        var clean = val.trim().toLowerCase();
+        emailInput.value = clean;
+        suggestedCleanEmail = '';
+
+        if (!clean) {
+          return { valid: false, message: 'נא להזין כתובת מייל.' };
+        }
+
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+        if (!emailRegex.test(clean)) {
+          return { valid: false, message: 'כתובת המייל שהוזנה אינה במבנה תקין (name@company.com).' };
+        }
+
+        var parts = clean.split('@');
+        var user = parts[0];
+        var domain = parts[1];
+
+        if (domain.endsWith('.cm')) {
+          suggestedCleanEmail = user + '@' + domain.slice(0, -3) + '.com';
+        } else if (domain.endsWith('.con') || domain.endsWith('.cmo')) {
+          suggestedCleanEmail = user + '@' + domain.replace(/\.(con|cmo)$/, '.com');
+        } else if (domain.endsWith('.co.i') || domain.endsWith('.coil')) {
+          suggestedCleanEmail = user + '@' + domain.replace(/\.(co\.i|coil)$/, '.co.il');
+        } else if (COMMON_TYPOS[domain]) {
+          suggestedCleanEmail = user + '@' + COMMON_TYPOS[domain];
+        }
+
+        return { valid: true, cleanEmail: clean, domain: domain };
+      }
+
+      emailInput.addEventListener('blur', function() {
+        var res = inspectEmail(emailInput.value);
+        if (!res.valid) {
+          emailError.textContent = res.message;
+          emailError.classList.add('visible');
+          emailInput.classList.add('input-error');
+          typoBanner.classList.remove('visible');
+          domainWarning.classList.remove('visible');
+        } else {
+          emailError.classList.remove('visible');
+          emailInput.classList.remove('input-error');
+
+          if (suggestedCleanEmail && suggestedCleanEmail !== res.cleanEmail) {
+            typoText.textContent = suggestedCleanEmail;
+            typoBanner.classList.add('visible');
+          } else {
+            typoBanner.classList.remove('visible');
+          }
+
+          if (PUBLIC_DOMAINS.indexOf(res.domain) !== -1) {
+            domainWarning.classList.add('visible');
+          } else {
+            domainWarning.classList.remove('visible');
+          }
+        }
+      });
+
+      typoBtn.addEventListener('click', function() {
+        if (suggestedCleanEmail) {
+          emailInput.value = suggestedCleanEmail;
+          typoBanner.classList.remove('visible');
+          emailError.classList.remove('visible');
+          emailInput.classList.remove('input-error');
+          emailInput.focus();
+        }
+      });
+
+      nameInput.addEventListener('blur', function() {
+        var res = validateName(nameInput.value);
+        if (!res.valid) {
+          nameError.textContent = res.message;
+          nameError.classList.add('visible');
+          nameInput.classList.add('input-error');
+        } else {
+          nameError.classList.remove('visible');
+          nameInput.classList.remove('input-error');
+        }
+      });
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        typoBanner.classList.remove('visible');
+
+        var nameRes = validateName(nameInput.value);
+        var emailRes = inspectEmail(emailInput.value);
+
+        var hasError = false;
+
+        if (!nameRes.valid) {
+          nameError.textContent = nameRes.message;
+          nameError.classList.add('visible');
+          nameInput.classList.add('input-error');
+          hasError = true;
+        } else {
+          nameError.classList.remove('visible');
+          nameInput.classList.remove('input-error');
+        }
+
+        if (!emailRes.valid) {
+          emailError.textContent = emailRes.message;
+          emailError.classList.add('visible');
+          emailInput.classList.add('input-error');
+          hasError = true;
+        } else {
+          emailError.classList.remove('visible');
+          emailInput.classList.remove('input-error');
+        }
+
+        if (hasError) {
+          if (!nameRes.valid) { nameInput.focus(); }
+          else if (!emailRes.valid) { emailInput.focus(); }
+          return;
+        }
+
+        if (suggestedCleanEmail && suggestedCleanEmail !== emailInput.value) {
+          typoText.textContent = suggestedCleanEmail;
+          typoBanner.classList.add('visible');
+          emailInput.focus();
+          return;
+        }
+
+        var payload = {
+          fullName: nameInput.value,
+          businessEmail: emailInput.value,
+          submittedAt: new Date().toISOString(),
+          source: 'TRIQ Landing Page'
+        };
+
+        if (!ENDPOINT_URL) {
+          statusAlert.className = 'form-status-alert info visible';
+          statusAlert.innerHTML = '<strong>מצב הדגמה (Demo Mode):</strong><br>הפרטים אומתו בהצלחה: (' + escapeHTML(payload.fullName) + ', ' + escapeHTML(payload.businessEmail) + ').<br>שליחה לשרת אינה פעילה כעת מכיוון שטרם הוגדר Webhook פעיל.';
+          return;
+        }
+
+        submitBtn.disabled = true;
+        btnText.textContent = 'שולח נתונים...';
+        statusAlert.className = 'form-status-alert';
+        statusAlert.textContent = '';
+
+        fetch(ENDPOINT_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+        .then(function(res) {
+          if (!res.ok) { throw new Error('Server returned ' + res.status); }
+          return res.json().catch(function() { return {}; });
+        })
+        .then(function() {
+          form.style.display = 'none';
+          statusAlert.className = 'form-status-alert success visible';
+          statusAlert.textContent = 'תודה! הפרטים התקבלו. ניצור קשר לתיאום הדגמה.';
+        })
+        .catch(function(err) {
+          submitBtn.disabled = false;
+          btnText.textContent = 'לתיאום הדגמה';
+          statusAlert.className = 'form-status-alert error visible';
+          statusAlert.textContent = 'אירעה שגיאה בעת שליחת הטופס. אנא נסה שוב מאוחר יותר.';
+        });
+      });
+
+      function escapeHTML(str) {
+        return str.replace(/[&<>'"]/g, function(tag) {
+          return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag);
+        });
+      }
+
+      var a11yToggleBtn = document.getElementById('a11y-toggle-btn');
+      var a11yPanel = document.getElementById('a11y-panel');
+      var btnFontInc = document.getElementById('btn-font-increase');
+      var btnFontDec = document.getElementById('btn-font-decrease');
+      var btnContrast = document.getElementById('btn-contrast');
+      var btnLinks = document.getElementById('btn-links');
+      var btnMotion = document.getElementById('btn-motion');
+      var btnReset = document.getElementById('btn-reset');
+
+      var currentFontScale = 1.0;
+
+      a11yToggleBtn.addEventListener('click', function() {
+        var isOpen = a11yPanel.classList.toggle('is-open');
+        a11yToggleBtn.setAttribute('aria-expanded', isOpen);
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && a11yPanel.classList.contains('is-open')) {
+          a11yPanel.classList.remove('is-open');
+          a11yToggleBtn.setAttribute('aria-expanded', 'false');
+          a11yToggleBtn.focus();
+        }
+      });
+
+      btnFontInc.addEventListener('click', function() {
+        if (currentFontScale < 1.3) {
+          currentFontScale += 0.1;
+          document.documentElement.style.setProperty('--font-scale', currentFontScale + 'rem');
+        }
+      });
+
+      btnFontDec.addEventListener('click', function() {
+        if (currentFontScale > 0.85) {
+          currentFontScale -= 0.1;
+          document.documentElement.style.setProperty('--font-scale', currentFontScale + 'rem');
+        }
+      });
+
+      btnContrast.addEventListener('click', function() {
+        var active = document.body.classList.toggle('high-contrast');
+        btnContrast.setAttribute('aria-pressed', active);
+      });
+
+      btnLinks.addEventListener('click', function() {
+        var active = document.body.classList.toggle('highlight-links');
+        btnLinks.setAttribute('aria-pressed', active);
+      });
+
+      btnMotion.addEventListener('click', function() {
+        var active = document.body.classList.toggle('reduce-motion');
+        btnMotion.setAttribute('aria-pressed', active);
+      });
+
+      btnReset.addEventListener('click', function() {
+        currentFontScale = 1.0;
+        document.documentElement.style.setProperty('--font-scale', '1rem');
+        document.body.classList.remove('high-contrast', 'highlight-links', 'reduce-motion');
+        btnContrast.setAttribute('aria-pressed', 'false');
+        btnLinks.setAttribute('aria-pressed', 'false');
+        btnMotion.setAttribute('aria-pressed', 'false');
+      });
+
+    })();
+  </script>
+<script>
+(function(){
+  var targets=document.querySelectorAll('.problem-section .card,.how-section .step-card,.functions-section .card,.strip-heading');
+  if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){return;}
+  targets.forEach(function(el){el.classList.add('reveal-on-scroll')});
+  var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}})},{threshold:.10,rootMargin:'0px 0px -20px 0px'});
+  targets.forEach(function(el){observer.observe(el)});
+})();
+</script>
+</body>
+</html>
